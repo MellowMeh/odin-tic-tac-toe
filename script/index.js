@@ -10,10 +10,6 @@ const createBoard = (function () {
     }
 })();
 
-createBoard.getBoard();
-console.table(createBoard.getBoard());
-
-
 let PlayerFactory = function (name, status) {
     let player = {};
     player.name = name;
@@ -21,7 +17,9 @@ let PlayerFactory = function (name, status) {
     return player;
 };
 
-let player1 = PlayerFactory('Robert', 'Human');
-console.log(player1);
-
-
+const playGame = (function () {
+    createBoard.getBoard();
+    console.table(createBoard.getBoard());
+    let player1 = PlayerFactory('Robert', 'Human');
+    console.log(player1);
+})();
