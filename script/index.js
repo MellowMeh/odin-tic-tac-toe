@@ -76,16 +76,37 @@ const easyAI = (function () {
     };
     return {
         getEasyAIIndex: () => changeIndex(),
-        
+
     } 
 })();
 
 const sumArrays = (function () {
-    console.log(createBoard.diag2);
+    let addValues = (total, value) => {
+        return total + value;
+    }
+    let row1Sum = createBoard.row1.reduce(addValues);
+    let row2Sum = createBoard.row2.reduce(addValues);
+    let row3Sum = createBoard.row3.reduce(addValues);
+    let col1Sum = createBoard.col1.reduce(addValues);
+    let col2Sum = createBoard.col2.reduce(addValues);
+    let col3Sum = createBoard.col3.reduce(addValues);
+    let diag1Sum = createBoard.diag1.reduce(addValues);
+    let diag2Sum = createBoard.diag2.reduce(addValues);
+    return {
+        row1Sum,
+        row2Sum,
+        row3Sum,
+        col1Sum,
+        col2Sum,
+        col3Sum,
+        diag1Sum,
+        diag2Sum,
+    }
 })();
 
 const playGame = (function () {
     let player1 = PlayerFactory('Robert', 'Human');
     console.log(player1);
     easyAI.getEasyAIIndex();
+    console.log(sumArrays.diag2Sum);
 })();
