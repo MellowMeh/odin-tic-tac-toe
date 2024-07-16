@@ -7,7 +7,11 @@ const createBoard = (function () {
     const getGameBoard = () => gameBoard;
     let row1 = gameBoard[0], row2 = gameBoard[1], row3 = gameBoard[2];
     let col1 =[], col2 = [], col3 = [];
-    gameBoard.forEach(x => {col1.push(x[0]); col2.push(x[1]); col3.push(x[2])});
+        gameBoard.forEach(x => {col1.push(x[0]); col2.push(x[1]); col3.push(x[2])});
+    let diag1 = [];
+        diag1.push(gameBoard[0][0], gameBoard[1][1], gameBoard[2][2]); 
+    let diag2 = [];
+        diag2.push(gameBoard[0][2], gameBoard[1][1], gameBoard[2][0]); 
     return {
         getBoard: () => getGameBoard(),
         row1,
@@ -16,6 +20,8 @@ const createBoard = (function () {
         col1,
         col2,
         col3,
+        diag1,
+        diag2,
     }
 })();
 
