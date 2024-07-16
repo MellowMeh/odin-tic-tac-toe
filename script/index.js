@@ -51,10 +51,21 @@ const createBoard = (function () {
     }
 })();
 
+let PlayerFactory = function (name, status) {
+    let player = {};
+    player.name = name;
+    player.status = status; //human or AI
+    return player;
+};
+
+
+
 createBoard.humanMove(1, 2);
 createBoard.humanMove(2, 2);
 createBoard.humanMove(2, 0);
 createBoard.humanMove(0, 2);
 createBoard.computerMove(0, 1);
 console.table(createBoard.viewBoard());
-createBoard.getSum();
+    createBoard.getSum();
+let player1 = PlayerFactory('Robert', 'Human');
+    console.log(player1);
