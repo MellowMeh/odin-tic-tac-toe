@@ -5,8 +5,17 @@ const createBoard = (function () {
         [6, 7, 8],
     ];
     const getGameBoard = () => gameBoard;
+    let row1 = gameBoard[0], row2 = gameBoard[1], row3 = gameBoard[2];
+    let col1 =[], col2 = [], col3 = [];
+    gameBoard.forEach(x => {col1.push(x[0]); col2.push(x[1]); col3.push(x[2])});
     return {
         getBoard: () => getGameBoard(),
+        row1,
+        row2,
+        row3,
+        col1,
+        col2,
+        col3,
     }
 })();
 
@@ -67,10 +76,7 @@ const easyAI = (function () {
 })();
 
 const sumArrays = (function () {
-    let gameBoard = createBoard.getBoard();
-    let row1 = gameBoard[0], row2 = gameBoard[1], row3 = gameBoard[2];
-    let col1 =[], col2 = [], col3 = [];
-    gameBoard.forEach(x => {col1.push(x[0]); col2.push(x[1]); col3.push(x[2])});
+    console.log(createBoard.col1);
 })();
 
 const playGame = (function () {
