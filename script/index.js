@@ -66,6 +66,16 @@ const easyAI = (function () {
     } 
 })();
 
+const sumArrays = (function () {
+    let gameBoard = createBoard.getBoard();
+    let row0 = gameBoard[0];
+    let row1 = gameBoard[1];
+    let row2 = gameBoard[2];
+    let col0 = gameBoard.map(d => d[0]);
+    let col1 = gameBoard.map(d => d[1]);
+    let col2 = gameBoard.map(d => d[2]);
+})();
+
 const playGame = (function () {
     let player1 = PlayerFactory('Robert', 'Human');
     console.log(player1);
