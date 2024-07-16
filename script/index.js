@@ -1,8 +1,8 @@
 const createBoard = (function () {
     const gameBoard = [
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0],
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
     ];
     const getGameBoard = () => gameBoard;
     return {
@@ -68,12 +68,9 @@ const easyAI = (function () {
 
 const sumArrays = (function () {
     let gameBoard = createBoard.getBoard();
-    let row0 = gameBoard[0];
-    let row1 = gameBoard[1];
-    let row2 = gameBoard[2];
-    let col0 = gameBoard.map(d => d[0]);
-    let col1 = gameBoard.map(d => d[1]);
-    let col2 = gameBoard.map(d => d[2]);
+    let row1 = gameBoard[0], row2 = gameBoard[1], row3 = gameBoard[2];
+    let col1 =[], col2 = [], col3 = [];
+    gameBoard.forEach(x => {col1.push(x[0]); col2.push(x[1]); col3.push(x[2])});
 })();
 
 const playGame = (function () {
