@@ -88,6 +88,9 @@ const createBoard = (function () {
             location.reload();
             console.table(createBoard.viewBoard());
         }
+        if (humanMovesCounter === 5 && row0Value !== 3 && row1Value !== 3 && row2Value !== 3 && col0Value !== 3 && col1Value !== 3 && col2Value !== 3 && diagStartLeftValue !== 3 && diagStartRightValue !== 3) {
+            alert('it is a draw');
+        }
     };
     function resetBoard() {
         gameBoard[0][0] = gameBoard[0][1] = gameBoard[0][2] = 0;
