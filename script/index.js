@@ -10,8 +10,30 @@ const createBoard = (function () {
     function humanChangeGameBoardCell(row, column) {
         gameBoard[row][column] = 1;
     };
-    function computerChangeGameBoardCell(row, column) {
-        gameBoard[row][column] = -1;
+    function easyAI () {
+        let randomRow = Math.floor(Math.random() * 100);
+            console.log(randomRow);
+        let randomColumn = Math.floor(Math.random() * 100);
+            console.log(randomColumn);
+        if (randomRow < 34) {
+            easyAIRow = 0;
+        } else if (randomRow < 67){
+            easyAIRow = 1;
+        } else {
+            easyAIRow = 2;
+        }
+        if (randomColumn < 34) {
+            easyAIColumn = 0;
+        } else if (randomColumn < 67) {
+            easyAIColumn = 1;
+        } else {
+            easyAIColumn = 2;
+        }
+        console.log(easyAIColumn);
+        console.log(easyAIRow);
+    };
+    function computerChangeGameBoardCell() {
+        gameBoard[easyAIRow][easyAIColumn] = -1;
     }
     function sumGameBoard() {
         let addValues = (total, value) => {
@@ -45,6 +67,7 @@ const createBoard = (function () {
     };
     return {
         humanMove: (row, column) => humanChangeGameBoardCell(row, column),
+        easyAI: () => easyAI(),
         computerMove: (row, column) => computerChangeGameBoardCell(row, column),
         viewBoard: () => viewGameBoard(),
         getSum: (number) => sumGameBoard(number),
@@ -64,6 +87,7 @@ createBoard.humanMove(1, 2);
 createBoard.humanMove(2, 2);
 createBoard.humanMove(2, 0);
 createBoard.humanMove(0, 2);
+createBoard.easyAI();
 createBoard.computerMove(0, 1);
 console.table(createBoard.viewBoard());
     createBoard.getSum();
