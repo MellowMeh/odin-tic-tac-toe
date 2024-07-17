@@ -73,7 +73,7 @@ const createBoard = (function () {
     return {
         humanMove: (row, column) => humanChangeGameBoardCell(row, column),
         easyAI: () => easyAI(),
-        computerMove: (row, column) => computerChangeGameBoardCell(row, column),
+        computerMove: () => computerChangeGameBoardCell(),
         viewBoard: () => viewGameBoard(),
         getSum: (number) => sumGameBoard(number),
         restartGame: () => resetBoard(),
