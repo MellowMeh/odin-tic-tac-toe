@@ -8,7 +8,12 @@ const createBoard = (function () {
         return gameBoard.slice(0);
     };
     function humanChangeGameBoardCell(row, column) {
-        gameBoard[row][column] = 1;
+        if (gameBoard[row][column] === 0) {
+            gameBoard[row][column] = 1;
+        } else {
+            alert('Please choose an available cell');
+            humanChangeGameBoardCell();
+        }
     };
     function easyAI () {
         let randomRow = Math.floor(Math.random() * 100);
@@ -33,7 +38,13 @@ const createBoard = (function () {
         console.log(easyAIRow);
     };
     function computerChangeGameBoardCell() {
-        gameBoard[easyAIRow][easyAIColumn] = -1;
+        if (gameBoard[easyAIRow][easyAIColumn] === 0) {
+            gameBoard[easyAIRow][easyAIColumn] = -1;
+        } else {
+            console.log('no worky');
+            easyAI();
+            computerChangeGameBoardCell();
+        }
     }
     function sumGameBoard() {
         let addValues = (total, value) => {
@@ -70,6 +81,13 @@ const createBoard = (function () {
         gameBoard[1][0] = gameBoard[1][1] = gameBoard[1][2] = 0;
         gameBoard[2][0] = gameBoard[2][1] = gameBoard[2][2] = 0;
     };
+    function executeRound() {
+        createBoard.humanMove(row, column);
+        console.table(createBoard.viewBoard());
+        createBoard.easyAI();
+        createBoard.computerMove();
+        console.table(createBoard.viewBoard());
+    }
     return {
         humanMove: (row, column) => humanChangeGameBoardCell(row, column),
         easyAI: () => easyAI(),
@@ -77,6 +95,7 @@ const createBoard = (function () {
         viewBoard: () => viewGameBoard(),
         getSum: (number) => sumGameBoard(number),
         restartGame: () => resetBoard(),
+        executeRound: () => executeRound(),
     }
 })();
 
@@ -88,31 +107,68 @@ let PlayerFactory = function (name, status) {
 };
 
 const playGame = (function () {
-
+    let buttons = document.querySelectorAll('button');
+    console.table(createBoard.viewBoard());
+    for (let button of buttons){
+        button.addEventListener('click', () => {
+            target = event.target;
+            switch (target.id) {
+                case 'one':
+                    row = 0;
+                    column = 0;
+                    createBoard.executeRound();
+                    button.disabled = true;
+                    break;
+                case 'two':
+                    row = 0;
+                    column = 1;
+                    createBoard.executeRound();
+                    button.disabled = true;
+                    break;
+                case 'three':
+                    row = 0;
+                    column = 2;
+                    createBoard.executeRound();
+                    button.disabled = true;
+                    break;
+                case 'four':
+                    row = 1;
+                    column = 0;
+                    createBoard.executeRound();
+                    button.disabled = true;
+                    break;
+                case 'five':
+                    row = 1;
+                    column = 1;
+                    createBoard.executeRound();
+                    button.disabled = true;
+                    break;
+                case 'six':
+                    row = 1;
+                    column = 2;
+                    createBoard.executeRound();
+                    button.disabled = true;
+                    break;
+                case 'seven':
+                    row = 2;
+                    column = 0;
+                    createBoard.executeRound();
+                    button.disabled = true;
+                    break;
+                case 'eight':
+                    row = 2;
+                    column = 1;
+                    createBoard.executeRound();
+                    button.disabled = true;
+                    break;
+                case 'nine':
+                    row = 2;
+                    column = 2;
+                    createBoard.executeRound();
+                    button.disabled = true;
+                    break;
+            }
+        })
+    }
 })();
-
-createBoard.humanMove(1, 2);
-createBoard.humanMove(2, 2);
-createBoard.humanMove(2, 0);
-createBoard.humanMove(0, 2);
-createBoard.easyAI();
-createBoard.computerMove();
-console.table(createBoard.viewBoard());
-createBoard.easyAI();
-createBoard.computerMove();
-console.table(createBoard.viewBoard());
-createBoard.easyAI();
-createBoard.computerMove();
-console.table(createBoard.viewBoard());
-createBoard.easyAI();
-createBoard.computerMove();
-console.table(createBoard.viewBoard());
-createBoard.easyAI();
-createBoard.computerMove();
-console.table(createBoard.viewBoard());
-    createBoard.getSum();
-let player1 = PlayerFactory('Robert', 'Human');
-    console.log(player1);
-createBoard.restartGame();
-console.table(createBoard.viewBoard());
 
