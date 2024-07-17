@@ -77,6 +77,17 @@ const createBoard = (function () {
         diagStartRight.push(gameBoard[0][2], gameBoard[1][1], gameBoard[2][0]);
         let diagStartRightValue = diagStartRight.reduce(addValues);
             console.log(diagStartRightValue);
+
+        if (row0Value === 3 || row1Value === 3 || row2Value === 3 || col0Value === 3 || col1Value === 3 || col2Value === 3 || diagStartLeftValue === 3 || diagStartRightValue === 3) {
+            alert('Human has won');
+            location.reload();
+            console.table(createBoard.viewBoard());
+        }  
+        if (row0Value === -3 || row1Value === -3 || row2Value === -3 || col0Value === -3 || col1Value === -3 || col2Value === -3 || diagStartLeftValue === -3 || diagStartRightValue === -3) {
+            alert('Computer has won');
+            location.reload();
+            console.table(createBoard.viewBoard());
+        }
     };
     function resetBoard() {
         gameBoard[0][0] = gameBoard[0][1] = gameBoard[0][2] = 0;
@@ -98,6 +109,7 @@ const createBoard = (function () {
         getSum: (number) => sumGameBoard(number),
         restartGame: () => resetBoard(),
         executeRound: () => executeRound(),
+        getBoardData: () => getBoardArrays(),
     }
 })();
 
@@ -120,57 +132,65 @@ const playGame = (function () {
                     column = 0;
                     createBoard.executeRound();
                     button.disabled = true;
+                    createBoard.getSum();
                     break;
                 case 'two':
                     row = 0;
                     column = 1;
                     createBoard.executeRound();
                     button.disabled = true;
+                    createBoard.getSum();
                     break;
                 case 'three':
                     row = 0;
                     column = 2;
                     createBoard.executeRound();
                     button.disabled = true;
+                    createBoard.getSum();
                     break;
                 case 'four':
                     row = 1;
                     column = 0;
                     createBoard.executeRound();
                     button.disabled = true;
+                    createBoard.getSum();
                     break;
                 case 'five':
                     row = 1;
                     column = 1;
                     createBoard.executeRound();
                     button.disabled = true;
+                    createBoard.getSum();
                     break;
                 case 'six':
                     row = 1;
                     column = 2;
                     createBoard.executeRound();
                     button.disabled = true;
+                    createBoard.getSum();
                     break;
                 case 'seven':
                     row = 2;
                     column = 0;
                     createBoard.executeRound();
                     button.disabled = true;
+                    createBoard.getSum();
                     break;
                 case 'eight':
                     row = 2;
                     column = 1;
                     createBoard.executeRound();
                     button.disabled = true;
+                    createBoard.getSum();
                     break;
                 case 'nine':
                     row = 2;
                     column = 2;
                     createBoard.executeRound();
                     button.disabled = true;
+                    createBoard.getSum();
                     break;
             }
         })
     }
 })();
-
