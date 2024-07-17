@@ -65,12 +65,18 @@ const createBoard = (function () {
         let diagStartRightValue = diagStartRight.reduce(addValues);
             console.log(diagStartRightValue);
     };
+    function resetBoard() {
+        gameBoard[0][0] = gameBoard[0][1] = gameBoard[0][2] = 0;
+        gameBoard[1][0] = gameBoard[1][1] = gameBoard[1][2] = 0;
+        gameBoard[2][0] = gameBoard[2][1] = gameBoard[2][2] = 0;
+    };
     return {
         humanMove: (row, column) => humanChangeGameBoardCell(row, column),
         easyAI: () => easyAI(),
         computerMove: (row, column) => computerChangeGameBoardCell(row, column),
         viewBoard: () => viewGameBoard(),
         getSum: (number) => sumGameBoard(number),
+        restartGame: () => resetBoard(),
     }
 })();
 
@@ -81,15 +87,32 @@ let PlayerFactory = function (name, status) {
     return player;
 };
 
+const playGame = (function () {
 
+})();
 
 createBoard.humanMove(1, 2);
 createBoard.humanMove(2, 2);
 createBoard.humanMove(2, 0);
 createBoard.humanMove(0, 2);
 createBoard.easyAI();
-createBoard.computerMove(0, 1);
+createBoard.computerMove();
+console.table(createBoard.viewBoard());
+createBoard.easyAI();
+createBoard.computerMove();
+console.table(createBoard.viewBoard());
+createBoard.easyAI();
+createBoard.computerMove();
+console.table(createBoard.viewBoard());
+createBoard.easyAI();
+createBoard.computerMove();
+console.table(createBoard.viewBoard());
+createBoard.easyAI();
+createBoard.computerMove();
 console.table(createBoard.viewBoard());
     createBoard.getSum();
 let player1 = PlayerFactory('Robert', 'Human');
     console.log(player1);
+createBoard.restartGame();
+console.table(createBoard.viewBoard());
+
