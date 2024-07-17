@@ -32,3 +32,17 @@ textarea:focus, input:focus {
     outline: none;
 }
 
+
+/*Default CSS Custom Variables*/
+:root {
+    --default-font-size: clamp(1rem, 1rem + 2vw, 2rem);
+    --default-max-inline-size: 66ch;
+    --default-line-height: 1.65;
+    --default-font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    --dark-grey: #1b1b1b;
+    --light-grey: #80868B;
+    --blue: #4285F4;
+    --white: whitesmoke;
+}
+
+/*Webpage Specific Rules*/
