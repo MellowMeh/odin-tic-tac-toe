@@ -7,9 +7,11 @@ const createBoard = (function () {
     function viewGameBoard() {
         return gameBoard.slice(0);
     };
+    let humanMovesCounter = 0;
     function humanChangeGameBoardCell(row, column) {
         if (gameBoard[row][column] === 0) {
             gameBoard[row][column] = 1;
+            ++humanMovesCounter;
         } else {
             alert('Please choose an available cell');
             humanChangeGameBoardCell();
@@ -40,7 +42,7 @@ const createBoard = (function () {
     function computerChangeGameBoardCell() {
         if (gameBoard[easyAIRow][easyAIColumn] === 0) {
             gameBoard[easyAIRow][easyAIColumn] = -1;
-        } else {
+        } else if (humanMovesCounter < 5) {
             console.log('no worky');
             easyAI();
             computerChangeGameBoardCell();
