@@ -89,6 +89,7 @@ const createBoard = (function () {
             console.table(createBoard.viewBoard());
         }
         if (humanMovesCounter === 5 && row0Value !== 3 && row1Value !== 3 && row2Value !== 3 && col0Value !== 3 && col1Value !== 3 && col2Value !== 3 && diagStartLeftValue !== 3 && diagStartRightValue !== 3) {
+            location.reload();
             alert('it is a draw');
         }
     };
@@ -104,6 +105,129 @@ const createBoard = (function () {
         createBoard.computerMove();
         console.table(createBoard.viewBoard());
     }
+    function styleButton() {
+        if (createBoard.viewBoard()[0][0] === 1) {
+            let button = document.querySelector('#one');
+            button.style.backgroundColor = 'var(--blue)';
+            button.textContent = 'X';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[0][1] === 1) {
+            let button = document.querySelector('#two');
+            button.style.backgroundColor = 'var(--blue)';
+            button.textContent = 'X';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[0][2] === 1) {
+            let button = document.querySelector('#three');
+            button.style.backgroundColor = 'var(--blue)';
+            button.textContent = 'X';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[1][0] === 1) {
+            let button = document.querySelector('#four');
+            button.style.backgroundColor = 'var(--blue)';
+            button.textContent = 'X';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[1][1] === 1) {
+            let button = document.querySelector('#five');
+            button.style.backgroundColor = 'var(--blue)';
+            button.textContent = 'X';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[1][2] === 1) {
+            let button = document.querySelector('#six');
+            button.style.backgroundColor = 'var(--blue)';
+            button.textContent = 'X';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[2][0] === 1) {
+            let button = document.querySelector('#seven');
+            button.style.backgroundColor = 'var(--blue)';
+            button.textContent = 'X';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[2][1] === 1) {
+            let button = document.querySelector('#eight');
+            button.style.backgroundColor = 'var(--blue)';
+            button.textContent = 'X';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[2][2] === 1) {
+            let button = document.querySelector('#nine');
+            button.style.backgroundColor = 'var(--blue)';
+            button.textContent = 'X';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+
+
+
+
+        if (createBoard.viewBoard()[0][0] === -1) {
+            let button = document.querySelector('#one');
+            button.textContent = 'O';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[0][1] === -1) {
+            let button = document.querySelector('#two');
+            button.textContent = 'O';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[0][2] === -1) {
+            let button = document.querySelector('#three');
+            button.textContent = 'O';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[1][0] === -1) {
+            let button = document.querySelector('#four');
+            button.textContent = 'O';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[1][1] === -1) {
+            let button = document.querySelector('#five');
+            button.textContent = 'O';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[1][2] === -1) {
+            let button = document.querySelector('#six');
+            button.textContent = 'O';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[2][0] === -1) {
+            let button = document.querySelector('#seven');
+            button.textContent = 'O';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[2][1] === -1) {
+            let button = document.querySelector('#eight');
+            button.textContent = 'O';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+        if (createBoard.viewBoard()[2][2] === -1) {
+            let button = document.querySelector('#nine');
+            button.textContent = 'O';
+            button.style.color = 'var(--white)';
+            button.style.fontSize = 'calc(var(--default-font-size)*2)';
+        }
+    }
     return {
         humanMove: (row, column) => humanChangeGameBoardCell(row, column),
         easyAI: () => easyAI(),
@@ -113,6 +237,7 @@ const createBoard = (function () {
         restartGame: () => resetBoard(),
         executeRound: () => executeRound(),
         getBoardData: () => getBoardArrays(),
+        styleButton: () => styleButton(),
     }
 })();
 
@@ -134,6 +259,7 @@ const playGame = (function () {
                     row = 0;
                     column = 0;
                     createBoard.executeRound();
+                    createBoard.styleButton();
                     button.disabled = true;
                     createBoard.getSum();
                     break;
@@ -141,6 +267,7 @@ const playGame = (function () {
                     row = 0;
                     column = 1;
                     createBoard.executeRound();
+                    createBoard.styleButton();
                     button.disabled = true;
                     createBoard.getSum();
                     break;
@@ -148,6 +275,7 @@ const playGame = (function () {
                     row = 0;
                     column = 2;
                     createBoard.executeRound();
+                    createBoard.styleButton();
                     button.disabled = true;
                     createBoard.getSum();
                     break;
@@ -155,6 +283,7 @@ const playGame = (function () {
                     row = 1;
                     column = 0;
                     createBoard.executeRound();
+                    createBoard.styleButton();
                     button.disabled = true;
                     createBoard.getSum();
                     break;
@@ -162,6 +291,7 @@ const playGame = (function () {
                     row = 1;
                     column = 1;
                     createBoard.executeRound();
+                    createBoard.styleButton();
                     button.disabled = true;
                     createBoard.getSum();
                     break;
@@ -169,6 +299,7 @@ const playGame = (function () {
                     row = 1;
                     column = 2;
                     createBoard.executeRound();
+                    createBoard.styleButton();
                     button.disabled = true;
                     createBoard.getSum();
                     break;
@@ -176,6 +307,7 @@ const playGame = (function () {
                     row = 2;
                     column = 0;
                     createBoard.executeRound();
+                    createBoard.styleButton();
                     button.disabled = true;
                     createBoard.getSum();
                     break;
@@ -183,6 +315,7 @@ const playGame = (function () {
                     row = 2;
                     column = 1;
                     createBoard.executeRound();
+                    createBoard.styleButton();
                     button.disabled = true;
                     createBoard.getSum();
                     break;
@@ -190,6 +323,7 @@ const playGame = (function () {
                     row = 2;
                     column = 2;
                     createBoard.executeRound();
+                    createBoard.styleButton();
                     button.disabled = true;
                     createBoard.getSum();
                     break;
