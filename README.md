@@ -1,1 +1,2 @@
 # odin-tic-tac-toe
+This project was a disaster from start to finish. In spite of this project being largely a failure, I have learned more from this exercise than any of those preceding. I began this project with no idea whatsoever of modular programming. Now, I have a great sense of clarity on closures and scope. This project taught me a lot, though I am still disappointed in the result. I have decided to move on for now and revisit the project later on. 
